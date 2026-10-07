@@ -1,18 +1,52 @@
 @import "tailwindcss";
 
-:root {
+:root,
+html[data-theme="dark"] {
+  color-scheme: dark;
   --background: #1a1a1a;
   --foreground: #eff1f6;
   --muted: #8b8b8b;
   --surface: #262626;
   --surface-2: #2c2c2c;
   --border: #3e3e3e;
+  --editor: #1e1e1e;
   --easy: #00b8a3;
   --medium: #ffc01e;
   --hard: #ff375f;
   --brand: #ffa116;
   --accepted: #2cbb5d;
   --wrong: #ef4743;
+  --accept-track: #1a3324;
+  --heat-0: #2c2c2c;
+  --heat-1: #3d2e14;
+  --heat-2: #6b4a12;
+  --heat-3: #c47b12;
+  --heat-4: #ffa116;
+  --scrollbar: #4a4a4a;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --background: #f5f5f5;
+  --foreground: #262626;
+  --muted: #737373;
+  --surface: #ffffff;
+  --surface-2: #f0f0f0;
+  --border: #e5e5e5;
+  --editor: #ffffff;
+  --easy: #00a190;
+  --medium: #d97706;
+  --hard: #e11d48;
+  --brand: #e08900;
+  --accepted: #16a34a;
+  --wrong: #dc2626;
+  --accept-track: #dcfce7;
+  --heat-0: #ebedf0;
+  --heat-1: #fde7c7;
+  --heat-2: #f5c16a;
+  --heat-3: #e89a2d;
+  --heat-4: #e08900;
+  --scrollbar: #c4c4c4;
 }
 
 @theme inline {
@@ -28,6 +62,8 @@
   --color-brand: var(--brand);
   --color-accepted: var(--accepted);
   --color-wrong: var(--wrong);
+  --color-editor: var(--editor);
+  --color-accept-track: var(--accept-track);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -49,7 +85,7 @@ body {
 
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: #4a4a4a transparent;
+  scrollbar-color: var(--scrollbar) transparent;
 }
 
 .easy {

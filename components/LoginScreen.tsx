@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
 import type { PublicUser } from "@/lib/types";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { initials } from "@/lib/format";
 
 export function LoginScreen() {
@@ -46,11 +47,14 @@ export function LoginScreen() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,161,22,0.12),_transparent_55%)]" />
-      <header className="relative z-10 flex items-center gap-2 px-6 py-5">
-        <Logo />
-        <span className="text-lg font-semibold tracking-tight">
-          LeetCode <span className="text-brand">&amp; Great Front End</span>
-        </span>
+      <header className="relative z-10 flex items-center justify-between gap-2 px-6 py-5">
+        <div className="flex items-center gap-2">
+          <Logo />
+          <span className="text-lg font-semibold tracking-tight">
+            LeetCode <span className="text-brand">&amp; Great Front End</span>
+          </span>
+        </div>
+        <ThemeToggle />
       </header>
 
       <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center px-4 pb-16">

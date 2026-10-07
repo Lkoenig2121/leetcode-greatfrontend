@@ -78,7 +78,7 @@ function Confetti({ burst }: { burst: boolean }) {
 
 function FillBar({ percent, className = "" }: { percent: number; className?: string }) {
   return (
-    <div className={`overflow-hidden rounded-full bg-[#1a3324] ${className}`}>
+    <div className={`overflow-hidden rounded-full bg-accept-track ${className}`}>
       <div
         className="h-full rounded-full bg-accepted"
         style={{ width: `${Math.min(100, Math.max(0, percent))}%` }}

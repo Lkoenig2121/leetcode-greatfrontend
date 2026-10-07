@@ -67,7 +67,7 @@ export function DashboardHome() {
                 cy="50"
                 r="42"
                 fill="none"
-                stroke="#3e3e3e"
+                stroke="var(--border)"
                 strokeWidth="10"
               />
               <circle
@@ -293,21 +293,12 @@ function ActivityGrid({ activity }: { activity: Stats["activity"] }) {
                 day.submissions === 0
                   ? 0
                   : Math.min(4, Math.ceil((day.submissions / max) * 4));
-              const bg =
-                intensity === 0
-                  ? "bg-[#2c2c2c]"
-                  : intensity === 1
-                    ? "bg-[#3d2e14]"
-                    : intensity === 2
-                      ? "bg-[#6b4a12]"
-                      : intensity === 3
-                        ? "bg-[#c47b12]"
-                        : "bg-brand";
               return (
                 <div
                   key={day.date}
                   title={`${day.date}: ${day.submissions} submission${day.submissions === 1 ? "" : "s"} (${day.accepted} accepted)`}
-                  className={`h-3 w-3 rounded-[3px] ${bg}`}
+                  className="h-3 w-3 rounded-[3px]"
+                  style={{ background: `var(--heat-${intensity})` }}
                 />
               );
             })}

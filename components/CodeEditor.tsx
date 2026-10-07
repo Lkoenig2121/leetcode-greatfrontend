@@ -149,11 +149,11 @@ export function CodeEditor({
   })();
 
   return (
-    <div className="relative flex h-full min-h-[240px] overflow-hidden bg-[#1e1e1e] font-mono text-[13px] leading-6">
+    <div className="relative flex h-full min-h-[240px] overflow-hidden bg-editor font-mono text-[13px] leading-6">
       <div
         ref={gutterRef}
         aria-hidden
-        className="shrink-0 overflow-hidden border-r border-border/60 bg-[#1e1e1e] px-3 py-3 text-right text-muted"
+        className="shrink-0 overflow-hidden border-r border-border/60 bg-editor px-3 py-3 text-right text-muted"
       >
         {Array.from({ length: lines }, (_, i) => (
           <div key={i} style={{ height: LINE_HEIGHT }}>
@@ -189,7 +189,7 @@ export function CodeEditor({
         />
         {shown.length > 0 && (
           <ul
-            className="absolute z-10 min-w-[140px] max-w-[200px] overflow-hidden rounded border border-border bg-[#252525] py-0.5 text-left shadow-lg"
+            className="absolute z-10 min-w-[140px] max-w-[200px] overflow-hidden rounded border border-border bg-surface-2 py-0.5 text-left shadow-lg"
             style={{ top: Math.max(8, coords.top), left: Math.min(coords.left, 420) }}
           >
             {shown.map((item, i) => (

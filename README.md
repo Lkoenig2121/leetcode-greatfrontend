@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LeetCode Again
 
-## Getting Started
+A LeetCode-style practice app: pick one of three demo accounts, browse a problem set, write JavaScript, and have a real judge run your function against example and hidden test cases.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript** + **Tailwind CSS 4** for the UI
+- **Node.js** + **Express 5** for auth, progress, and the code judge
+
+The Next dev server proxies `/api/*` to Express (`http://localhost:4000`) so the browser stays on a single origin.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script | What it does |
+| --- | --- |
+| `pnpm dev` | Next on :3000 and the API on :4000 |
+| `pnpm verify:problems` | Confirms every reference solution passes, and that empty/broken code does not |
+| `pnpm reset:db` | Deletes `server/data/db.json` so demo progress is re-seeded on next start |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Accounts
 
-## Learn More
+No passwords. Choose Alice, Bob, or Carol on the login screen — each already has a different set of solved / attempted problems.
 
-To learn more about Next.js, take a look at the following resources:
+## How judging works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Run** executes the visible example cases (the ones shown in the problem statement).
+- **Submit** executes every case, including hidden ones, and records the attempt.
+- Solutions are JavaScript functions (`function twoSum(...) { ... }` or an equivalent assignment). The judge compares JSON-serialized return values (and in-place mutations where the problem requires them).

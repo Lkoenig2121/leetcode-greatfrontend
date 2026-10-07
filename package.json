@@ -3,24 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -k -n web,api -c cyan,yellow \"next dev\" \"tsx watch server/index.ts\"",
+    "dev:web": "next dev",
+    "dev:api": "tsx watch server/index.ts",
     "build": "next build",
-    "start": "next start",
+    "start": "concurrently -k -n web,api -c cyan,yellow \"next start\" \"tsx server/index.ts\"",
+    "start:api": "tsx server/index.ts",
+    "verify:problems": "tsx server/verify.ts",
+    "reset:db": "tsx server/reset-db.ts",
     "lint": "eslint"
   },
   "dependencies": {
+    "express": "^5.2.1",
+    "jsdom": "^30.1.2",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
+    "@types/express": "^5.0.6",
+    "@types/jsdom": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^10.0.5",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

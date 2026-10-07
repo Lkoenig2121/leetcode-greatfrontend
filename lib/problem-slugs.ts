@@ -1,0 +1,43 @@
+/** Slugs used by `generateStaticParams` so problem pages can prerender. Keep in sync with `server/problems/`. */
+export const PROBLEM_SLUGS = [
+  "two-sum",
+  "longest-substring-without-repeating-characters",
+  "median-of-two-sorted-arrays",
+  "palindrome-number",
+  "container-with-most-water",
+  "roman-to-integer",
+  "3sum",
+  "valid-parentheses",
+  "longest-valid-parentheses",
+  "trapping-rain-water",
+  "group-anagrams",
+  "maximum-subarray",
+  "merge-intervals",
+  "climbing-stairs",
+  "best-time-to-buy-and-sell-stock",
+  "single-number",
+  "contains-duplicate",
+  "product-of-array-except-self",
+  "valid-anagram",
+  "missing-number",
+  "move-zeroes",
+  "reverse-string",
+  "fizz-buzz",
+  "binary-search",
+] as const;
+
+/** Slugs used by `generateStaticParams` for Front End pages. Keep in sync with `server/frontend/catalog.ts`. */
+export const FRONTEND_SLUGS = [
+  "gfe-counter",
+  "gfe-accordion",
+  "gfe-tabs",
+  "gfe-todo-list",
+  "gfe-contact-form",
+  "gfe-star-rating",
+  "gfe-make-counter",
+  "gfe-flatten",
+  "gfe-classnames",
+  "gfe-deep-clone",
+  "gfe-get",
+  "gfe-squash",
+] as const;
